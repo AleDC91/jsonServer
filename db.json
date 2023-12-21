@@ -1,28 +1,20 @@
 {
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$9Jro0/aHwCO6S7J4MahWfuFGRmS2vr220/aMt8NWlz/8sW9HkzfjK",
-      "firstname": "Olivier",
-      "lastname": "Monge",
-      "age": 32,
+      "email": "ale@ale.com",
+      "password": "$2a$10$vmHa750BBFkNKtqneE.iK.344nI8/scChbDn8WsjpfKZkJg2D1iNW",
+      "name": "ale",
+      "surname": "dc",
+      "age": "33",
       "id": 1
     },
     {
-      "email": "anna@cerasoli.com",
-      "password": "$2a$10$NBp/hagy/bQOC54L5Y6yr.BjeaYroaVtg.5.cnsUSXCJxvVLWu0Mq",
-      "firstname": "Anna",
-      "lastname": "Cerasoli",
-      "age": 18,
+      "email": "dio@dio.can",
+      "password": "$2a$10$xOhjjTsGRywXstgM85kKBu7.wFrwNCQN4Bd/Ive6yw1ZXKZDGf0Oi",
+      "name": "porco",
+      "surname": "dio",
+      "age": "33",
       "id": 2
-    },
-    {
-      "email": "ale@dc.it",
-      "password": "$2a$10$c/38JJWysIHcHQepyIRWW..3uMtW07kQmuN.whgS1dPd50syOuaI2",
-      "name": "ale",
-      "surname": "dc",
-      "age": "100",
-      "id": 3
     }
   ]
 }

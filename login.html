@@ -10,39 +10,52 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <script src="js/login.js" defer></script>
   </head>
   <body>
     <div class="container-fluid mx-auto">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="d-flex align-items-baseline">
+            <a class="navbar-brand">JsonServer</a>
+            <div class="ciao">Ciao <span></span></div>
+          </div>
+          <div class="btns-nav">
+            <a href="login.html"><button class="btn btn-dark">Login</button></a>
+            <a href="register.html"><button class="btn btn-outline-dark">Register</button></a>
+          </div>
+          
+        </div>
+      </nav>
       <form class="w-50 mx-auto">
         <div class="mb-3">
           <label for="" class="form-label">email</label>
           <input
-            type="email"
-            class="form-control"
-            name="email"
-            id="email"
-            aria-describedby="helpId"
-            placeholder=""
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          aria-describedby="helpId"
+          placeholder=""
           />
           <label for="" class="form-label">password</label>
           <input
-            type="password"
-            class="form-control"
-            name="email"
-            id="password"
-            aria-describedby="helpId"
-            placeholder=""
+          type="password"
+          class="form-control"
+          name="email"
+          id="password"
+          aria-describedby="helpId"
+          placeholder=""
           />
         </div>
-        <button type="submit" class="btn btn-primary">bottoneeeeeee!!!</button>
+        <button class="btn btn-primary login">bottoneeeeeee!!!</button>
       </form>
       <div class="msg w-50 mx-auto"></div>
     </div>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
     ></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

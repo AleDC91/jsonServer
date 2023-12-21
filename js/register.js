@@ -1,5 +1,4 @@
 
-
 class User {
     constructor(_name, _surname, _email, _password, _age){
         this.name = _name;
@@ -11,7 +10,7 @@ class User {
 }
 
 
-let bottone = document.querySelector("button");
+let bottone = document.querySelector(".register");
 
 
 

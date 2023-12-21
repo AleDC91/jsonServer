@@ -1,7 +1,7 @@
-let bottone = document.querySelector("button");
+let bottone = document.querySelector(".login");
 
-bottone.addEventListener("click", (e) => {
-    e.preventDefault();
+bottone.addEventListener("click", (evt) => {
+ evt.preventDefault();
   let email = document.querySelector("#email").value;
   let password = document.querySelector("#password").value;
   console.log(email, password);
@@ -11,7 +11,7 @@ bottone.addEventListener("click", (e) => {
 function login(email, pass) {
   let user = {
     email: email,
-    password: pass,
+    password: pass
   };
 
   console.log(user);
@@ -22,25 +22,26 @@ function login(email, pass) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   })
-    .then(response => response.json())
-    .then(json => {
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json)
       if (json.user) {
         localStorage.setItem("token", json.accessToken);
-        location.href = `index.html?name=${json.user.name}`
+        location.href = `index.html?name=${json.user.name}`;
       } else {
         if (json === "Incorrect password") {
           document.querySelector(".msg").innerHTML = `
                 <div
                 class="alert alert-danger"
                 role="alert">
-                <strong>Mona!</strong> Hai sbagliatoooo la password!
+                <strong>Errore!</strong> Hai sbagliatoooo la password!
                 </div>`;
         } else if (json === "Cannot find user") {
           document.querySelector(".msg").innerHTML = `
                 <div
                 class="alert alert-danger"
                 role="alert">
-                <strong>E tu?</strong> Chi cazzo sei???
+                <strong>E tu?</strong> Chi  sei???
                 </div>`;
         }
       }
