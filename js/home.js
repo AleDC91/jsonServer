@@ -1,7 +1,11 @@
+
 let logged = false;
 let username = "";
 let isAdmin = false;
 const token = localStorage.getItem("token");
+
+showProducts();
+
 if (token) {
   logged = true;
   isAdminfromToken(token);
@@ -72,7 +76,6 @@ function isAdminfromToken(token) {
     });
 }
 
-showProducts();
 function showProducts() {
   const URL = "http://localhost:3000/products/";
   fetch(URL)
@@ -121,6 +124,8 @@ function createTable(products) {
   });
   table.appendChild(thead);
   table.appendChild(tbody);
+
+
 }
 
 function createAdminBtn() {

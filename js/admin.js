@@ -93,10 +93,13 @@ function createTable(products) {
       <th>Descrizione</th>
       <th>Prezzo</th>
       <th>Immagine</th>
+      <th>Elimina</th>
+      <th>Modifica</th> 
     </tr>`;
   let tbody = document.createElement("tbody");
   products.forEach((product) => {
     let tr = document.createElement("tr");
+    tr.setAttribute("data-id", product.id);
     let prName = document.createElement("td");
     prName.innerText = product.nomeProdotto;
     let marca = document.createElement("td");
@@ -105,17 +108,24 @@ function createTable(products) {
     descr.innerText = product.descrizioneProdotto;
     let price = document.createElement("td");
     price.innerText = product.prezzo;
+    let elimina = document.createElement("td");
+    elimina.innerHTML = `<button class="btn btn-danger elimina-prodotto">Elimina</button>`;
+    let modifica = document.createElement("td");
+    modifica.innerHTML = `<button class="btn btn-warning modifica-prodotto">Modifica</button>`;
 
     let img = document.createElement("td");
-    img.classList.add("img-fluid")
-    img.style.backgroundImage = `url(${product.imgUrl})`
+    img.classList.add("img-fluid");
+    img.style.backgroundImage = `url(${product.imgUrl})`;
     img.style.backgroundSize = "cover";
     img.style.backgroundRepeat = "no-repeat";
     tr.appendChild(prName);
     tr.appendChild(marca);
     tr.appendChild(descr);
     tr.appendChild(price);
-    tr.appendChild(img)
+    tr.appendChild(img);
+    tr.appendChild(elimina);
+    tr.appendChild(modifica);
+
     tbody.appendChild(tr);
   });
   table.appendChild(thead);
@@ -131,38 +141,34 @@ function createPreviewBtn() {
   hook.appendChild(a);
 }
 
-
 let addProducButton = document.querySelector(".add-product");
 
 addProducButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    let pName = document.querySelector("#nomeProdotto").value;
-    let marca = document.querySelector("#marca").value;
-    let descrizione = document.querySelector("#descrizione").value;
-    let prezzo = document.querySelector("#prezzo").value;
-    let imgUrl = document.querySelector("#immagine").value;
-    console.log(pName, marca, descrizione, prezzo,imgUrl)
-    let id = Product.productCounter++;
-    console.log(id)
-    let product = new Product(pName, marca, descrizione, prezzo, imgUrl, id);
-    console.log(product)
-    createNewProduct(product);
+  e.preventDefault();
+  let pName = document.querySelector("#nomeProdotto").value;
+  let marca = document.querySelector("#marca").value;
+  let descrizione = document.querySelector("#descrizione").value;
+  let prezzo = document.querySelector("#prezzo").value;
+  let imgUrl = document.querySelector("#immagine").value;
+  console.log(pName, marca, descrizione, prezzo, imgUrl);
+  let id = Product.productCounter++;
+  console.log(id);
+  let product = new Product(pName, marca, descrizione, prezzo, imgUrl, id);
+  console.log(product);
+  createNewProduct(product);
+});
 
-}
-)
-
-
-class Product{
+class Product {
   constructor(_nome, _marca, _descr, _prezzo, _imgUrl, _id) {
     this.nomeProdotto = _nome;
     this.marca = _marca;
     this.descrizioneProdotto = _descr;
     this.prezzo = _prezzo;
     this.imgUrl = _imgUrl;
-    this.id = _id
+    this.id = _id;
   }
-  static productCounter = 2
-};
+  static productCounter = 2;
+}
 
 function createNewProduct(product) {
   const URL = "http://localhost:3000/products/";
@@ -171,6 +177,21 @@ function createNewProduct(product) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(product)
+    body: JSON.stringify(product),
+  });
+}
+
+document.querySelector("table").addEventListener("click", (e) => {
+  if (e.target.classList.contains("elimina-prodotto")) {
+    productId = e.target.parentNode.parentNode.dataset.id;
+    eliminaProdotto(productId)
+  }
+});
+
+function eliminaProdotto(id) {
+  let URL = "http://localhost:3000/products/";
+  fetch(URL + id, {
+    method: "DELETE",
+    headers: {"Content-Type": "application/json"},
   });
 }
