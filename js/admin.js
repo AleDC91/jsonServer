@@ -183,8 +183,11 @@ function createNewProduct(product) {
 
 document.querySelector("table").addEventListener("click", (e) => {
   if (e.target.classList.contains("elimina-prodotto")) {
-    productId = e.target.parentNode.parentNode.dataset.id;
+    let productId = e.target.parentNode.parentNode.dataset.id;
     eliminaProdotto(productId)
+  } else if(e.target.classList.contains("modifica-prodotto")){
+    let productId = e.target.parentNode.parentNode.dataset.id;
+    location.href = `edit.html?id=${productId}`
   }
 });
 

@@ -2,12 +2,13 @@
 let logged = false;
 let username = "";
 let isAdmin = false;
-const token = localStorage.getItem("token");
+const token = sessionStorage.getItem("token");
 
-showProducts();
+
 
 if (token) {
   logged = true;
+  showProducts();
   isAdminfromToken(token);
   if (document.referrer.includes("login.html")) {
     let searchParams = new URLSearchParams(window.location.search);
@@ -49,7 +50,7 @@ if (logged) {
   document.querySelector(".logout-btn").style.display = "block";
   document.querySelector(".logout-btn").addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     location.href = "index.html";
   });
 }

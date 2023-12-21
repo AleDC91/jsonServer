@@ -1,73 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="d-flex align-items-baseline">
-                <a class="navbar-brand">JsonServer</a>
-                <div class="ciao">Ciao <span></span></div>
-            </div>
-            <div class="btns-nav">
-                <a href="login.html"><button class="btn btn-dark">Login</button></a>
-                <a href="register.html"><button class="btn btn-outline-dark">Register</button></a>
-            </div>
-            
+      <div class="container-fluid">
+        <div class="d-flex align-items-baseline">
+          <a class="navbar-brand">JsonServer</a>
+          <div class="ciao">Ciao <span></span></div>
         </div>
-      </nav>
-        <div class="mb-3">
-            <label for="" class="form-label">nome</label>
-            <input
-                type="text"
-                class="form-control"
-                name="email"
-                id="name"
-                aria-describedby="helpId"
-                placeholder=""
-            />
-            <label for="" class="form-label">cognome</label>
-            <input
-                type="text"
-                class="form-control"
-                name="email"
-                id="surname"
-                aria-describedby="helpId"
-                placeholder=""
-            />
-            <label for="" class="form-label">eta</label>
-            <input
-                type="number"
-                class="form-control"
-                name="eta"
-                id="eta"
-                aria-describedby="helpId"
-                placeholder="">
-            <label for="" class="form-label">email</label>
-            <input
-                type="email"
-                class="form-control"
-                name="email"
-                id="email"
-                aria-describedby="helpId"
-                placeholder=""
-            />
-            <label for="" class="form-label">Password</label>
-            <input
-                type="password"
-                class="form-control"
-                name="password"
-                id="password"
-                aria-describedby="helpId"
-                placeholder=""
-            />
-            <button class="btn btn-primary register">Registrati</button>
+        <div class="btns-nav">
+          <a href="login.html"><button class="btn btn-dark">Login</button></a>
+          <a href="register.html"
+            ><button class="btn btn-outline-dark">Register</button></a
+          >
+        </div>
+      </div>
+    </nav>
+    <form class="form w-50 mt-5 mx-auto">
+        <h3>Sign In</h3>
+      <div class="mb-3">
+        <label for="" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          id="name"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          id="surname"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Eta</label>
+        <input
+          type="number"
+          class="form-control"
+          name="eta"
+          id="eta"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <button class="btn btn-primary register">Registrati</button>
 
-
-    <div class="msg"></div>
+      <div class="msg"></div>
+    </form>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
     <script src="js/register.js"></script>
-</body>
+  </body>
 </html>

@@ -8,24 +8,40 @@
       "age": "33",
       "id": 1,
       "isAdmin": true
+    },
+    {
+      "email": "aaa@aaa.aaa",
+      "password": "$2a$10$yQvGq4M9Hr5FlLZ5/v37lurVdDolWpaBqffu1R4DCEnU.iz9Y1dYG",
+      "name": "asaasdvf",
+      "surname": "dfvsdfvs",
+      "age": "44",
+      "id": 2
+    },
+    {
+      "email": "as@as.as",
+      "password": "$2a$10$q1Qd..w.D5Lzoe1tFea10Olbk3Y0bwi6/Rbqc6DBlrk2KvEFLo6my",
+      "name": "asdf",
+      "surname": "asdf",
+      "age": "23",
+      "id": 3
+    },
+    {
+      "email": "ddd@ddd.ddd",
+      "password": "$2a$10$1f.esTWkvf6iCNDTuzKim.UabY3fZcSWldBCM4OL1PWZ31hNysWnS",
+      "name": "ddd",
+      "surname": "ddd",
+      "age": "22",
+      "id": 4
     }
   ],
   "products": [
     {
-      "nomeProdotto": "qualcosa",
-      "descrizioneProdotto": "cose a caso",
+      "nomeProdotto": "cose",
       "marca": "PETZL",
+      "descrizioneProdotto": "cose a caso",
       "prezzo": "23",
       "imgUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQtTDulZlETJv2LEm-gDSeujNsS5rJ5H09q_3vJ3HR8OXkdQe4drhJnryVqXCa_DpKvXuiJBU4vETWYeIX7mVxieKz36b40DajRPh9c9bdQ5uOf1us5Sk86SgEe76fV3g&usqp=CAc",
       "id": 1
-    },
-    {
-      "nomeProdotto": "ciaksdvadf",
-      "marca": "vsdfvsfv",
-      "descrizioneProdotto": "sdfvsf",
-      "prezzo": "34",
-      "imgUrl": "dvsdfv",
-      "id": 3
     }
   ]
 }

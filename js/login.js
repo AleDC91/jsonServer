@@ -26,7 +26,7 @@ function login(email, pass) {
     .then((json) => {
       console.log(json)
       if (json.user) {
-        localStorage.setItem("token", json.accessToken);
+        sessionStorage.setItem("token", json.accessToken);
         location.href = `index.html?name=${json.user.name}`;
       } else {
         if (json === "Incorrect password") {

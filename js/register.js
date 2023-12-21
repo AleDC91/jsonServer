@@ -43,7 +43,7 @@ function createUser(user){
         },
         body: JSON.stringify(user)
     }).then(response => response.json())
-    .then(data => { location.href = `index.html`
+    .then(data => { location.href = `login.html`
     })
 }
 
@@ -51,10 +51,3 @@ function createUser(user){
 
 
 
-// let user = {
-//     "email": "madonn@putt.ana",
-//     "password": "bastardone",
-//     "firstname": "cane",
-//     "lastname": "porcoide",
-//     "age": 33
-//   }

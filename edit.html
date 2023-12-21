@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/edit.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="d-flex align-items-baseline">
+            <a class="navbar-brand">JsonServer</a>
+            <div class="ciao">Ciao <span></span></div>
+            <div class="admin"></div>
+            <div class="preview"></div>
+          </div>
+          <div class="btns-nav">
+            <a class="login-btn" href="login.html"
+              ><button class="btn btn-dark">Login</button></a
+            >
+            <a class="register-btn" href="register.html"
+              ><button class="btn btn-outline-dark">Register</button></a
+            >
+            <a class="logout-btn" href="#"
+              ><button class="btn btn-dark">Logout</button></a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <div class="d-flex justify-content-between mt-4">
+         
+            <div>
+            <h3 class="my-3">Modifica prodotto</h3>
+            <div class="mb-3">
+                <label for="nomeProdotto" class="form-label">Nome Prodotto</label>
+                <input type="text" class="form-control" id="nomeProdotto" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="descrizione" class="form-label">Descrizione</label>
+                <input type="text" class="form-control" id="descrizione" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="prezzo" class="form-label">Prezzo</label>
+                <input type="number" class="form-control" id="prezzo" aria-describedby="emailHelp">
+              </div>
+
+              <div class="mb-3">
+                <label for="immagine" class="form-label">Immagine</label>
+                <input type="text" class="form-control" id="immagine" aria-describedby="emailHelp">
+              </div>
+            <button class="btn btn-warning edit-product">MODIFICA</button>
+          </div>
+          <div class="img-prod"></div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
