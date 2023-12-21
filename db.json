@@ -6,7 +6,8 @@
       "name": "ale",
       "surname": "dc",
       "age": "33",
-      "id": 1
+      "id": 1,
+      "isAdmin": true
     },
     {
       "email": "dio@dio.can",
