@@ -67,7 +67,7 @@ function isAdminfromToken(token) {
     .then((data) => {
       // console.log(data.isAdmin)
       if (data.isAdmin === true) {
-        createAdminBtn();
+        createPreviewBtn();
       }
     });
 }
@@ -105,29 +105,72 @@ function createTable(products) {
     descr.innerText = product.descrizioneProdotto;
     let price = document.createElement("td");
     price.innerText = product.prezzo;
+
     let img = document.createElement("td");
     img.classList.add("img-fluid")
     img.style.backgroundImage = `url(${product.imgUrl})`
     img.style.backgroundSize = "cover";
     img.style.backgroundRepeat = "no-repeat";
-
     tr.appendChild(prName);
     tr.appendChild(marca);
     tr.appendChild(descr);
     tr.appendChild(price);
-    tr.appendChild(img);
-
+    tr.appendChild(img)
     tbody.appendChild(tr);
   });
   table.appendChild(thead);
   table.appendChild(tbody);
 }
 
-function createAdminBtn() {
+function createPreviewBtn() {
   let a = document.createElement("a");
   let hook = document.querySelector(".admin");
   a.classList.add("admin-btn");
-  a.setAttribute("href", "admin.html");
-  a.innerHTML = `<button class="btn btn-primary ms-3">Admin Panel</button>`;
+  a.setAttribute("href", "index.html");
+  a.innerHTML = `<button class="btn btn-warning ms-3">Vedi pagina</button>`;
   hook.appendChild(a);
+}
+
+
+let addProducButton = document.querySelector(".add-product");
+
+addProducButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    let pName = document.querySelector("#nomeProdotto").value;
+    let marca = document.querySelector("#marca").value;
+    let descrizione = document.querySelector("#descrizione").value;
+    let prezzo = document.querySelector("#prezzo").value;
+    let imgUrl = document.querySelector("#immagine").value;
+    console.log(pName, marca, descrizione, prezzo,imgUrl)
+    let id = Product.productCounter++;
+    console.log(id)
+    let product = new Product(pName, marca, descrizione, prezzo, imgUrl, id);
+    console.log(product)
+    createNewProduct(product);
+
+}
+)
+
+
+class Product{
+  constructor(_nome, _marca, _descr, _prezzo, _imgUrl, _id) {
+    this.nomeProdotto = _nome;
+    this.marca = _marca;
+    this.descrizioneProdotto = _descr;
+    this.prezzo = _prezzo;
+    this.imgUrl = _imgUrl;
+    this.id = _id
+  }
+  static productCounter = 2
+};
+
+function createNewProduct(product) {
+  const URL = "http://localhost:3000/products/";
+  fetch(URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product)
+  });
 }

@@ -1,3 +1,12 @@
 .logout-btn {
   display: none;
 }
+
+th {
+  height: 3rem;
+}
+
+td {
+  vertical-align: middle;
+  text-align: center;
+}

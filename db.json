@@ -8,14 +8,32 @@
       "age": "33",
       "id": 1,
       "isAdmin": true
+    }
+  ],
+  "products": [
+    {
+      "nomeProdotto": "qualcosa",
+      "descrizioneProdotto": "cose a caso",
+      "marca": "PETZL",
+      "prezzo": "23",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQtTDulZlETJv2LEm-gDSeujNsS5rJ5H09q_3vJ3HR8OXkdQe4drhJnryVqXCa_DpKvXuiJBU4vETWYeIX7mVxieKz36b40DajRPh9c9bdQ5uOf1us5Sk86SgEe76fV3g&usqp=CAc",
+      "id": 1
     },
     {
-      "email": "dio@dio.can",
-      "password": "$2a$10$xOhjjTsGRywXstgM85kKBu7.wFrwNCQN4Bd/Ive6yw1ZXKZDGf0Oi",
-      "name": "porco",
-      "surname": "dio",
-      "age": "33",
+      "nomeProdotto": "ciao",
+      "marca": "ciao",
+      "descr": "ciao",
+      "prezzo": "12",
+      "imgUrl": "ciao",
       "id": 2
+    },
+    {
+      "nomeProdotto": "ciaksdvadf",
+      "marca": "vsdfvsfv",
+      "descrizioneProdotto": "sdfvsf",
+      "prezzo": "34",
+      "imgUrl": "dvsdfv",
+      "id": 3
     }
   ]
 }
