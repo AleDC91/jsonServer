@@ -7,7 +7,7 @@ if (token) {
   if (document.referrer.includes("login.html")) {
     let searchParams = new URLSearchParams(window.location.search);
     username = searchParams.get("name");
-    updateUsername();
+    updateUsername(username);
     console.log(username);
   } else {
     console.log(token)
