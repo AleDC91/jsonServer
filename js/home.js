@@ -2,8 +2,9 @@
 let logged = false;
 let username = "";
 let isAdmin = false;
-const token = sessionStorage.getItem("token");
-let cartItems = localStorage.getItem("cartItems") || [];
+const token = localStorage.getItem("token");
+let cartItems =JSON.parse(localStorage.getItem("cartItems")) || [];
+
 
 countCartElements()
 
@@ -11,6 +12,7 @@ countCartElements()
 if (token) {
   logged = true;
   showProducts();
+  fillCartModal();
   isAdminfromToken(token);
   if (document.referrer.includes("login.html")) {
     let searchParams = new URLSearchParams(window.location.search);
@@ -52,7 +54,7 @@ if (logged) {
   document.querySelector(".logout-btn").style.display = "block";
   document.querySelector(".logout-btn").addEventListener("click", (e) => {
     e.preventDefault();
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
     location.href = "index.html";
   });
 }
@@ -187,8 +189,8 @@ function fillCartModal(){
     `
     <img src=${item.imgUrl}class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">${item.productName}</h5>
-    <p class="card-text">${item.price}</p>
+        <h5 class="card-title">${item.nomeProdotto}</h5>
+    <p class="card-text">${item.prezzo}€</p>
     <button data-id=${item.id} class="btn btn-warning remove-from-cart">Remove</button>
     `
     modal.appendChild(card)
