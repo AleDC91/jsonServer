@@ -15,7 +15,8 @@
       "name": "asaasdvf",
       "surname": "dfvsdfvs",
       "age": "44",
-      "id": 2
+      "id": 2,
+      "isAdmin": true
     },
     {
       "email": "as@as.as",
@@ -36,8 +37,8 @@
   ],
   "products": [
     {
-      "nomeProdotto": "cose",
-      "marca": "PETZL",
+      "nomeProdotto": "penna",
+      "marca": "BIC",
       "descrizioneProdotto": "cose a caso",
       "prezzo": "23",
       "imgUrl": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQtTDulZlETJv2LEm-gDSeujNsS5rJ5H09q_3vJ3HR8OXkdQe4drhJnryVqXCa_DpKvXuiJBU4vETWYeIX7mVxieKz36b40DajRPh9c9bdQ5uOf1us5Sk86SgEe76fV3g&usqp=CAc",

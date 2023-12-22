@@ -111,7 +111,7 @@ function createTable(products) {
     let elimina = document.createElement("td");
     elimina.innerHTML = `<button class="btn btn-danger elimina-prodotto">Elimina</button>`;
     let modifica = document.createElement("td");
-    modifica.innerHTML = `<button class="btn btn-warning modifica-prodotto">Modifica</button>`;
+    modifica.innerHTML = `<button class="btn btn-warning modifica-prodotto" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifica</button>`;
 
     let img = document.createElement("td");
     img.classList.add("img-fluid");
@@ -185,9 +185,11 @@ document.querySelector("table").addEventListener("click", (e) => {
   if (e.target.classList.contains("elimina-prodotto")) {
     let productId = e.target.parentNode.parentNode.dataset.id;
     eliminaProdotto(productId)
-  } else if(e.target.classList.contains("modifica-prodotto")){
-    let productId = e.target.parentNode.parentNode.dataset.id;
-    location.href = `edit.html?id=${productId}`
+   } else if(e.target.classList.contains("modifica-prodotto")){
+     let productId = e.target.parentNode.parentNode.dataset.id;
+    showEditPreview(productId)
+
+  //   location.href = `edit.html?id=${productId}`
   }
 });
 
@@ -196,5 +198,57 @@ function eliminaProdotto(id) {
   fetch(URL + id, {
     method: "DELETE",
     headers: {"Content-Type": "application/json"},
+  });
+}
+
+
+function showEditPreview(id){
+  const URL = "http://localhost:3000/products/"
+  let prodName = document.querySelector("#mod-nomeProdotto");
+  let marca = document.querySelector("#mod-marca");
+  let descr = document.querySelector("#mod-descrizione");
+  let prezzo = document.querySelector("#mod-prezzo");
+  let imgURL = document.querySelector("#mod-immagine");
+  let editBtn = document.querySelector(".edit-mod");
+  fetch(URL+id)
+    .then(response => response.json())
+    .then(data => {
+      prodName.value = data.nomeProdotto;
+      marca.value = data.marca;
+      descr.value = data.descrizioneProdotto;
+      prezzo.value = data.prezzo;
+      imgURL.value = data.imgUrl;
+
+      editBtn.addEventListener("click", () => {
+        let prod = document.querySelector("#mod-nomeProdotto").value;
+        let marca = document.querySelector("#mod-marca").value;
+        let descr = document.querySelector("#mod-descrizione").value;
+        let prezzo = document.querySelector("#mod-prezzo").value;
+        let img = document.querySelector("#mod-immagine").value;
+        let editBtn = document.querySelector(".edit-mod");
+
+        let prodModif = {
+          nomeProdotto: prod,
+          marca: marca,
+          descrizioneProdotto: descr,
+          prezzo: prezzo,
+          imgUrl: img 
+        }
+        editProduct(id, prodModif)
+
+      })
+    })
+
+}
+
+
+function editProduct(id, product) {
+  const URL = "http://localhost:3000/products/";
+  fetch(URL+id, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product),
   });
 }
