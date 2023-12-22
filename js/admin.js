@@ -88,6 +88,7 @@ function createTable(products) {
   let thead = document.createElement("thead");
   thead.innerHTML = `
     <tr>
+     
       <th>Nome Prodotto</th>
       <th>Marca</th>
       <th>Descrizione</th>
@@ -100,6 +101,7 @@ function createTable(products) {
   products.forEach((product) => {
     let tr = document.createElement("tr");
     tr.setAttribute("data-id", product.id);
+    
     let prName = document.createElement("td");
     prName.innerText = product.nomeProdotto;
     let marca = document.createElement("td");
@@ -118,6 +120,7 @@ function createTable(products) {
     img.style.backgroundImage = `url(${product.imgUrl})`;
     img.style.backgroundSize = "cover";
     img.style.backgroundRepeat = "no-repeat";
+
     tr.appendChild(prName);
     tr.appendChild(marca);
     tr.appendChild(descr);

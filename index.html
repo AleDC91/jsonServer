@@ -17,7 +17,13 @@
                 <div class="ciao">Ciao <span></span></div>
                 <div class="admin"></div>
             </div>
-            <div class="btns-nav">
+            <div class="btns-nav d-flex ">
+                <div data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="carrello d-flex justify-content-center align-items-center me-4 bg-secondary-subtle rounded-circle">
+                  <div class="pallino text-white text-center"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                  </svg>
+                </div>
                 <a class="login-btn" href="login.html"><button class="btn btn-dark">Login</button></a>
                 <a class="register-btn" href="register.html"><button class="btn btn-outline-dark">Register</button></a>
                 <a class="logout-btn" href="#"><button class="btn btn-dark">Logout</button></a>
@@ -27,9 +33,35 @@
       </nav>
 
       <main>
-        <table class="products-table table table-hover">
+        <table class="products-table table table-hover mt-5">
 
         </table>
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="contenuto d-flex flex-column align-items-center overflow-auto bg-light">
+        <!-- contenuto dinamico -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
       </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

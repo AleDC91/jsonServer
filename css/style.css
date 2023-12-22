@@ -4,9 +4,12 @@
 
 th {
   height: 3rem;
+  vertical-align: middle;
+  text-align: center;
 }
 
-td {
+td, tr {
+  height: 150px;
   vertical-align: middle;
   text-align: center;
 }
@@ -16,6 +19,23 @@ td {
   height: 400px;
   background-color: red;
   margin-top: 32px;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+}
+
+.carrello {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  cursor: pointer;
+}
+
+.pallino {
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  background-color: green;
 }

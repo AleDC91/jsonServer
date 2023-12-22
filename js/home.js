@@ -3,7 +3,9 @@ let logged = false;
 let username = "";
 let isAdmin = false;
 const token = sessionStorage.getItem("token");
+let cartItems = localStorage.getItem("cartItems") || [];
 
+countCartElements()
 
 
 if (token) {
@@ -92,6 +94,7 @@ function createTable(products) {
   let thead = document.createElement("thead");
   thead.innerHTML = `
     <tr>
+    <th>Aggiungi</th>
       <th>Nome Prodotto</th>
       <th>Marca</th>
       <th>Descrizione</th>
@@ -101,6 +104,9 @@ function createTable(products) {
   let tbody = document.createElement("tbody");
   products.forEach((product) => {
     let tr = document.createElement("tr");
+    tr.setAttribute("data-id", product.id);
+    let buy = document.createElement("td");
+    buy.innerHTML = `<button class="btn btn-success add-to-cart"> + </button>`
     let prName = document.createElement("td");
     prName.innerText = product.nomeProdotto;
     let marca = document.createElement("td");
@@ -115,6 +121,7 @@ function createTable(products) {
     img.style.backgroundSize = "cover";
     img.style.backgroundRepeat = "no-repeat";
 
+    tr.appendChild(buy)
     tr.appendChild(prName);
     tr.appendChild(marca);
     tr.appendChild(descr);
@@ -125,7 +132,7 @@ function createTable(products) {
   });
   table.appendChild(thead);
   table.appendChild(tbody);
-
+  countCartElements()
 
 }
 
@@ -136,4 +143,87 @@ function createAdminBtn() {
   a.setAttribute("href", "admin.html");
   a.innerHTML = `<button class="btn btn-primary ms-3">Admin Panel</button>`;
   hook.appendChild(a);
+}
+
+
+
+let table = document.querySelector("table");
+table.addEventListener("click", (e) => {
+  if(e.target.classList.contains("add-to-cart")){
+    productId = e.target.parentNode.parentNode.dataset.id;
+    
+    addProductToCart(productId)
+
+  }
+}) 
+
+function addProductToCart(id){
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const URL = "http://localhost:3000/products/";
+  fetch(URL+id)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    if (!cartItems.find(item => item.id === data.id)) {
+      cartItems.push(data);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems))
+      countCartElements();
+
+      fillCartModal()
+    }
+  })
+}
+
+
+function fillCartModal(){
+  let modal = document.querySelector(".contenuto");
+  modal.innerHTML = "";
+  let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  cartItems.forEach(item => {
+    let card = document.createElement("div");
+    card.classList.add("cart");
+
+    card.innerHTML = 
+    `
+    <img src=${item.imgUrl}class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">${item.productName}</h5>
+    <p class="card-text">${item.price}</p>
+    <button data-id=${item.id} class="btn btn-warning remove-from-cart">Remove</button>
+    `
+    modal.appendChild(card)
+  });
+
+}
+
+
+let modal = document.querySelector(".contenuto");
+modal.addEventListener("click", (e) => {
+  e.preventDefault();
+  if(e.target.classList.contains("remove-from-cart")){
+    removeFromCart(e)
+  }
+
+});
+
+function removeFromCart(e) {
+
+  let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+  const itemToRemove = cartItems.find(item => item.id == e.target.dataset.id);
+  console.log(itemToRemove);
+
+  if (itemToRemove) {
+    cartItems = cartItems.filter(item => item.id != e.target.dataset.id);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    fillCartModal();
+    countCartElements()
+  }
+  console.log(cartItems);
+
+}
+function countCartElements(){
+  let pallino = document.querySelector(".pallino");
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  pallino.innerHTML = "";
+  pallino.innerText = cartItems.length;
 }
